@@ -1,12 +1,14 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { Grommet } from "grommet"
+import { grommet } from "grommet/themes"
+import { useTheme } from "./context/ThemeContext"
+
 
 function App() {
+  const { theme } = useTheme()
+
   return (
-    <div className="App">
+    <Grommet full theme={grommet} themeMode={theme.isDark ? "dark" : "light"}>
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
         <p>
           Edit <code>src/App.tsx</code> and save to reload.
         </p>
@@ -19,8 +21,9 @@ function App() {
           Learn React
         </a>
       </header>
-    </div>
-  );
+    </Grommet>
+  )
 }
 
-export default App;
+
+export default App
